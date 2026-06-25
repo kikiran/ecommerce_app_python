@@ -2,20 +2,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ecommerce-app-python-deployment
-  labels:
-    app: ecommerce-app-python
-spec: 
+  namespace: ecommerce
+spec:
   replicas: 2
   selector:
     matchLabels:
-      app: ecommerce-app-python
+      app: ecommerce-app
   template:
     metadata:
       labels:
-        app: ecommerce-app-python
+        app: ecommerce-app
     spec:
       containers:
-      - name: ecommerce-app-python
-        image: ecommerce_app_python:latest
+      - name: ecommerce-app
+        image: 197710836808.dkr.ecr.us-east-1.amazonaws.com/fastapi-app:1.0
         ports:
-        - containerPort: 5000                                                                                    
+        - containerPort: 8000                                                                                
